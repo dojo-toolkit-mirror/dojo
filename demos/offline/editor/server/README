@@ -32,6 +32,6 @@ from this directory, and the Moxie server-side will start running, with an
 embedded web-server (Jetty) and database (Derby) already setup for you. 
 In a web-browser, go to the following URL:
 
-http://localhost:8000/dojox/off/demos/editor/editor.html
+http://localhost:8000/demos/offline/editor/editor.html
 
 to run Moxie against your local server.
