@@ -23,7 +23,7 @@ public class Main{
 			
 			// serve up our Moxie/Dojo files
 			ResourceHandler resourceHandler = new ResourceHandler();
-			resourceHandler.setResourceBase("../../../../..");
+			resourceHandler.setResourceBase("../../../..");
 			server.addHandler(resourceHandler);
 			
 			// add the Moxie servlet
@@ -37,7 +37,7 @@ public class Main{
 		
 			System.out.println("Moxie ready to try on port 8000.");
 			System.out.println("Open a web browser and go to:");
-			System.out.println("http://localhost:8000/dojox/off/demos/editor/editor.html");
+			System.out.println("http://localhost:8000/demos/offline/editor/editor.html");
 		}catch(Exception e){
 			e.printStackTrace();
 			System.exit(1);
