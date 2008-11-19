@@ -112,9 +112,7 @@ djConfig = {
 		this["loadFirebugConsole"]();
 	}else{
 		if(!this["console"]){
-			this.console = {
-				fromDojo: true
-			};
+			this.console = {};
 		}
 
 		//	Be careful to leave 'log' always at the end
@@ -202,7 +200,7 @@ dojo.global = {
 =====*/
 	dojo.locale = d.config.locale;
 	
-	var rev = "$Rev: 15719 $".match(/\d+/);
+	var rev = "$Rev: 15772 $".match(/\d+/);
 
 	dojo.version = {
 		// summary: 
