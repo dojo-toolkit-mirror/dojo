@@ -1015,7 +1015,7 @@ tests = doh;
 		}
 	}catch(e){
 		print("\n"+doh._line);
-		print("The Dojo Unit Test Harness, $Rev$");
+		print("The Dojo Unit Test Harness, $Rev: 15929 $");
 		print("Copyright (c) 2007, The Dojo Foundation, All Rights Reserved");
 		print(doh._line, "\n");
 
