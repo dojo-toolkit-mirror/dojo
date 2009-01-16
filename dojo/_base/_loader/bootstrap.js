@@ -100,10 +100,6 @@ djConfig = {
 	//		Save dojo/resources/blank.html to your domain and set `djConfig.dojoBlankHtmlUrl` 
 	//		to the path on your domain your copy of blank.html.
 	dojoBlankHtmlUrl: undefined
-	// hostEnv: String
-	//		Defaults to "browser".  When appended to "hostenv_", forms the name of the module
-	//		which defines functionality specific to a host environment (typically a browser or
-	//		standalone scripting engine such as Rhino, Spidermonkey.	
 }
 =====*/
 
@@ -209,7 +205,7 @@ dojo.global = {
 		//	revision: Number
 		//		The SVN rev from which dojo was pulled
 		major: 1, minor: 3, patch: 0, flag: "dev",
-		revision: +"$Rev: 16348 $".match(/\d+/)[0],
+		revision: +"$Rev: 16349 $".match(/\d+/)[0],
 		toString: function(){
 			with(d.version){
 				return major + "." + minor + "." + patch + flag + " (" + revision + ")";	// String
