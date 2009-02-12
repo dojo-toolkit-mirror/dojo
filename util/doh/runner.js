@@ -128,6 +128,18 @@ doh.Deferred = function(canceller){
 };
 
 doh.extend(doh.Deferred, {
+	getTestErrback: function(cb, scope){
+		// summary: Replaces outer getTextCallback's in nested situations to avoid multiple callback(true)'s
+		var _this = this;
+		return function(){
+			try{
+				cb.apply(scope||doh.global||_this, arguments);
+			}catch(e){
+				_this.errback(e);
+			}
+		};
+	},
+
 	getTestCallback: function(cb, scope){
 		var _this = this;
 		return function(){
@@ -1015,7 +1027,7 @@ tests = doh;
 		}
 	}catch(e){
 		print("\n"+doh._line);
-		print("The Dojo Unit Test Harness, $Rev: 16243 $");
+		print("The Dojo Unit Test Harness, $Rev: 16659 $");
 		print("Copyright (c) 2009, The Dojo Foundation, All Rights Reserved");
 		print(doh._line, "\n");
 
