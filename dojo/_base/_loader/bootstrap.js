@@ -148,7 +148,6 @@ djConfig = {
 		};
 	}
 
-	var dojo = this.dojo;
 	var d = dojo;
 
 	//Need placeholders for dijit and dojox for scoping code.
@@ -194,7 +193,7 @@ dojo.global = {
 =====*/
 	dojo.locale = d.config.locale;
 
-	var rev = "$Rev: 16633 $".match(/\d+/); 
+	var rev = "$Rev: 16807 $".match(/\d+/); 
 
 	dojo.version = {
 		// summary: 
