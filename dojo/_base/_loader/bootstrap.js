@@ -105,6 +105,11 @@ djConfig = {
 	// 		IO operations. Publishing is done via dojo.publish. See dojo.__IoPublish for a list
 	// 		of topics that are published.
 	ioPublish: false
+	//  useCustomLogger: Anything?
+	//		If set to a value that evaluates to true such as a string or array and
+	//		isDebug is true and Firebug is not available or running, then it bypasses
+	//		the creation of Firebug Lite allowing you to define your own console object.
+	useCustomLogger: undefined
 }
 =====*/
 
@@ -198,7 +203,7 @@ dojo.global = {
 =====*/
 	dojo.locale = d.config.locale;
 
-	var rev = "$Rev: 17473 $".match(/\d+/); 
+	var rev = "$Rev: 18131 $".match(/\d+/); 
 
 	dojo.version = {
 		// summary: 
