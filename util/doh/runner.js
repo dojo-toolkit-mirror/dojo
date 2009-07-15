@@ -1015,19 +1015,27 @@ tests = doh;
 				// document.write() call.
 
 				// find runner.js, load _browserRunner relative to it
-				var scripts = document.getElementsByTagName("script");
+				var scripts = document.getElementsByTagName("script"), runnerFile;
 				for(x=0; x<scripts.length; x++){
 					var s = scripts[x].src;
-					if(s && (s.substr(s.length - 9) == "runner.js")){
-						document.write("<scri"+"pt src='" + s.substr(0, s.length - 9)
-							+ "_browserRunner.js' type='text/javascript'></scr"+"ipt>");
+					if(s){
+						if(!runnerFile && s.substr(s.length - 9) == "runner.js"){
+							runnerFile = s;
+						}else if(s.substr(s.length - 17) == "_browserRunner.js"){
+							runnerFile = null;
+							break;
+						}
 					}
+				}
+				if(runnerFile){
+					document.write("<scri"+"pt src='" + runnerFile.substr(0, runnerFile.length - 9)
+						+ "_browserRunner.js' type='text/javascript'></scr"+"ipt>");
 				}
 			}
 		}
 	}catch(e){
 		print("\n"+doh._line);
-		print("The Dojo Unit Test Harness, $Rev: 16659 $");
+		print("The Dojo Unit Test Harness, $Rev: 18820 $");
 		print("Copyright (c) 2009, The Dojo Foundation, All Rights Reserved");
 		print(doh._line, "\n");
 
