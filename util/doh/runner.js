@@ -667,7 +667,7 @@ doh.is = doh.assertEqual = function(/*Object*/ expected, /*Object*/ actual, /*St
 	if(arguments.length < 2){ 
 		throw doh._AssertFailure("assertEqual failed because it was not passed 2 arguments"); 
 	} 
-	if((expected === actual)||(expected == actual)){ 
+	if((expected === actual)||(expected == actual)||( isNaN(expected) && isNaN(actual) )){ 
 		return true;
 	}
 	if(	(this._isArray(expected) && this._isArray(actual))&&
@@ -1431,7 +1431,7 @@ tests = doh;
 		}
 	}catch(e){
 		print("\n"+doh._line);
-		print("The Dojo Unit Test Harness, $Rev: 18819 $");
+		print("The Dojo Unit Test Harness, $Rev: 19107 $");
 		print("Copyright (c) 2009, The Dojo Foundation, All Rights Reserved");
 		print(doh._line, "\n");
 
