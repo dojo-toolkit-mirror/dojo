@@ -1,4 +1,4 @@
-// package system gunk. 																	   e
+// package system gunk.
 try{
 	dojo.provide("doh.runner");
 }catch(e){
@@ -1432,7 +1432,7 @@ tests = doh;
 		}
 	}catch(e){
 		print("\n"+doh._line);
-		print("The Dojo Unit Test Harness, $Rev: 19526 $");
+		print("The Dojo Unit Test Harness, $Rev: 19538 $");
 		print("Copyright (c) 2009, The Dojo Foundation, All Rights Reserved");
 		print(doh._line, "\n");
 
