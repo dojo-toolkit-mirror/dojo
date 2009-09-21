@@ -207,7 +207,7 @@ dojo.global = {
 =====*/
 	dojo.locale = d.config.locale;
 
-	var rev = "$Rev: 20164 $".match(/\d+/); 
+	var rev = "$Rev: 20176 $".match(/\d+/); 
 
 /*=====
 	dojo.version = function(){
@@ -250,7 +250,7 @@ dojo.global = {
 	var extraNames, extraLen, empty = {};
 	for(var i in {toString: 1}){ extraNames = []; break; }
 	dojo._extraNames = extraNames = extraNames || ["hasOwnProperty", "valueOf", "isPrototypeOf",
-		"propertyIsEnumerable", "toLocaleString", "toString"];
+		"propertyIsEnumerable", "toLocaleString", "toString", "constructor"];
 	extraLen = extraNames.length;
 	
 	dojo._mixin = function(/*Object*/ target, /*Object*/ source){
