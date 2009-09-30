@@ -105,7 +105,7 @@ doh._AssertFailure = function(msg, hint){
 	// The JUM is dead! Long live the JUM!
 
 	if(!(this instanceof doh._AssertFailure)){
-		return new doh._AssertFailure(msg);
+		return new doh._AssertFailure(msg, hint);
 	}
 	if(hint){
 		msg = (new String(msg||""))+" with hint: \n\t\t"+(new String(hint)+"\n");
@@ -1437,7 +1437,7 @@ tests = doh;
 		}
 	}catch(e){
 		print("\n"+doh._line);
-		print("The Dojo Unit Test Harness, $Rev: 19939 $");
+		print("The Dojo Unit Test Harness, $Rev: 20331 $");
 		print("Copyright (c) 2009, The Dojo Foundation, All Rights Reserved");
 		print(doh._line, "\n");
 
