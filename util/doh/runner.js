@@ -1437,19 +1437,27 @@ tests = doh;
 		}
 	}catch(e){
 		print("\n"+doh._line);
-		print("The Dojo Unit Test Harness, $Rev: 20331 $");
+		print("The Dojo Unit Test Harness, $Rev: 20389 $");
 		print("Copyright (c) 2009, The Dojo Foundation, All Rights Reserved");
 		print(doh._line, "\n");
-
-		load("_rhinoRunner.js");
 
 		try{
 			var dojoUrl = "../../dojo/dojo.js";
 			var testUrl = "";
 			var testModule = "dojo.tests.module";
+			var dohBase = "";
 			for(x=0; x<arguments.length; x++){
 				if(arguments[x].indexOf("=") > 0){
 					var tp = arguments[x].split("=");
+					if(tp[0] == "dohBase"){
+						dohBase = tp[1];
+						//Convert slashes to unix style and make sure properly
+						//ended.
+						dohBase = dohBase.replace(/\\/g, "/");
+						if(dohBase.charAt(dohBase.length - 1) != "/"){
+							dohBase += "/";
+						}
+					}
 					if(tp[0] == "dojoUrl"){
 						dojoUrl = tp[1];
 					}
@@ -1461,6 +1469,9 @@ tests = doh;
 					}
 				}
 			}
+
+			load(dohBase + "_rhinoRunner.js");
+
 			if(dojoUrl.length){
 				if(!this["djConfig"]){
 					djConfig = {};
