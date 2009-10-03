@@ -144,6 +144,7 @@ djConfig = {
 						a.unshift(tcn+":");
 						console["log"](a.join(" "));
 					} : function(){}
+					console[tcn]._fake = true;
 				})();
 			}
 		}
@@ -207,7 +208,7 @@ dojo.global = {
 =====*/
 	dojo.locale = d.config.locale;
 
-	var rev = "$Rev: 20176 $".match(/\d+/); 
+	var rev = "$Rev: 20382 $".match(/\d+/); 
 
 /*=====
 	dojo.version = function(){
