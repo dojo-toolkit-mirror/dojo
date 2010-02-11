@@ -101,6 +101,8 @@ dojo.declare(
 		},
 
 		postMixInProperties: function(){
+			this.inherited(arguments);
+
 			if(!this.value || this.value.toString() == dijit.form._DateTimeTextBox.prototype.value.toString()){
 				this.value = null;
 			}
@@ -110,7 +112,6 @@ dojo.declare(
 			var fromISO = dojo.date.stamp.fromISOString;
 			if(typeof constraints.min == "string"){ constraints.min = fromISO(constraints.min); }
  			if(typeof constraints.max == "string"){ constraints.max = fromISO(constraints.max); }
-			this.inherited(arguments);
 		},
 
 		_onFocus: function(/*Event*/ evt){
@@ -175,9 +176,12 @@ dojo.declare(
 				this._picker.attr('value', this.attr('value') || new this.dateClassObj());
 			}
 			if(!this._opened){
+				// Open drop down.  Align left sides of input box and drop down, even in RTL mode,
+				// otherwise positioning thrown off when the drop down width is changed in marginBox call below (#10676)
 				dijit.popup.open({
 					parent: this,
 					popup: this._picker,
+					orient: {'BL':'TL', 'TL':'BL'},
 					around: this.domNode,
 					onCancel: dojo.hitch(this, this._close),
 					onClose: function(){ textBox._opened=false; }
