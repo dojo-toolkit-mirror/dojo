@@ -2,29 +2,27 @@
                 "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-        <title>dijit.scrollIntoView Test</title>
+        <title>dojo.window.scrollIntoView Test</title>
 
 	<style type="text/css">
-		@import "../../../dojo/resources/dojo.css";
-		@import "../css/dijitTests.css";
+		@import "../../resources/dojo.css";
 		FIELDSET { border:2px groove black; display:inline; padding:2px; }
 		FIELDSET IFRAME { width:100px; height:100px; }
 	</style>
-	<script type="text/javascript" src="../../../dojo/dojo.js"
+	<script type="text/javascript" src="../../dojo.js"
 		djConfig="isDebug: true"></script>
-	<script type="text/javascript" src="../_testCommon.js"></script>
 
 	<script type="text/javascript">
 		dojo.require("doh.runner");
-		dojo.require("dijit._base.scroll");
+		dojo.require("dojo.window");
 
 		var usingNative = !(dojo.isMoz || dojo.isIE || dojo.isWebKit || dojo.isOpera);
 		dojo.addOnLoad(function(){
-		        doh.register("dijit._base.scroll",
+		        doh.register("dojo.window.scroll",
 	                [
 				function checkAttrs(){
 					var body = dojo.body();
-					dijit.scrollIntoView(body);
+					dojo.window.scrollIntoView(body);
 					doh.f(dojo.hasAttr(body,'_offsetParent'));
 					doh.f(dojo.hasAttr(body,'_parent'));
 				},
@@ -519,7 +517,7 @@ console.debug('!!!!!!!!!!!! scrollbar size = ' + sb);
 	}
 	function _scrollIntoView(win){
 		var n = _findInput(win);
-		dojo.withGlobal(win, 'scrollIntoView', dijit, [n]);
+		dojo.withGlobal(win, 'scrollIntoView', dojo.window, [n]);
 	}
 	function _onClick(win){
 		_scrollIntoView(win);
