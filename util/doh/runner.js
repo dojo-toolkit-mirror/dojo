@@ -1000,7 +1000,7 @@ doh._calcTrialIterations =  function(/*String*/ groupName, /*Object*/ fixture){
 	//		The test fixture we want to calculate iterations for.
 	var def = new doh.Deferred();
 	var calibrate = function () {
-		var testFunc = fixture.runTest;
+		var testFunc = doh.hitch(fixture, fixture.runTest);
 
 		//Set the initial state.  We have to do this as a loop instead
 		//of a recursive function.  Otherwise, it blows the call stack
@@ -1446,7 +1446,7 @@ tests = doh;
 		}
 	}catch(e){
 		print("\n"+doh._line);
-		print("The Dojo Unit Test Harness, $Rev: 22059 $");
+		print("The Dojo Unit Test Harness, $Rev: 22880 $");
 		print("Copyright (c) 2010, The Dojo Foundation, All Rights Reserved");
 		print(doh._line, "\n");
 
