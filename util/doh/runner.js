@@ -1443,7 +1443,7 @@ tests = doh;
 		}
 	}catch(e){
 		print("\n"+doh._line);
-		print("The Dojo Unit Test Harness, $Rev: 23035 $");
+		print("The Dojo Unit Test Harness, $Rev: 23104 $");
 		print("Copyright (c) 2010, The Dojo Foundation, All Rights Reserved");
 		print(doh._line, "\n");
 
@@ -1505,9 +1505,12 @@ return doh;
 
 //this is guaranteed in the global scope, not matter what kind of eval is thrown at us
 this["doh"]= this["doh"] || {};
-if (typeof dojo !== "undefined") {
+if (typeof define !== "undefined") {
   define("doh/runner", [], function(){d(doh);});
 } else {
+  if (typeof dojo !== "undefined") {
+  	dojo.provide("doh.runner");
+  }
   d(doh);
 }
 
