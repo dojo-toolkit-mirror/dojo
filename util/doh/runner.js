@@ -1107,12 +1107,15 @@ doh._runRegFixture = function(/*String*/groupName, /*Object*/fixture){
 			}
 		}
 
-		var timer = setTimeout(function(){
+		var timeoutFunction = function(){
 			fixture.endTime = new Date();
 			ret.errback(new Error("test timeout in "+fixture.name.toString()));
-		}, fixture["timeout"]||1000);
+		};
+
+		var timer = setTimeout(function(){ timeoutFunction(); }, fixture["timeout"]||1000);
 
 		ret.addBoth(function(arg){
+			timeoutFunction = function(){}; // in IE8, the clearTimeout does not always stop the timer, so clear the function as well
 			clearTimeout(timer);
 			fixture.endTime = new Date();
 			retEnd();
@@ -1443,7 +1446,7 @@ tests = doh;
 		}
 	}catch(e){
 		print("\n"+doh._line);
-		print("The Dojo Unit Test Harness, $Rev: 23104 $");
+		print("The Dojo Unit Test Harness, $Rev: 23107 $");
 		print("Copyright (c) 2010, The Dojo Foundation, All Rights Reserved");
 		print(doh._line, "\n");
 
