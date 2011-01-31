@@ -228,7 +228,7 @@ dojo.global = {
 =====*/
 	dojo.locale = d.config.locale;
 
-	var rev = "$Rev: 23633 $".match(/\d+/);
+	var rev = "$Rev: 23679 $".match(/\d+/);
 
 /*=====
 	dojo.version = function(){
@@ -557,7 +557,10 @@ if(!this.define){
 }else{
 	// bootstrapping dojo with an AMD loader
 	define([], function(){
-		return bootstrapDojo().dojo;
+		var result= bootstrapDojo();
+		result.dojo._dijit= result.dijit;
+		result.dojo._dojox= result.dojox;
+		return result.dojo;
 	});
 }
 
