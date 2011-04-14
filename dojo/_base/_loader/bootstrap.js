@@ -1,3 +1,4 @@
+//>>not-amd pragma for docscript to say this is not an amd module 
 //>>includeStart("amdLoader", kwArgs.asynchLoader);
 (function(){
 
@@ -228,7 +229,7 @@ dojo.global = {
 =====*/
 	dojo.locale = d.config.locale;
 
-	var rev = "$Rev: 23930 $".match(/\d+/);
+	var rev = "$Rev: 24328 $".match(/\d+/);
 
 /*=====
 	dojo.version = function(){
