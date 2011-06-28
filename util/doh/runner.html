@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html style="height:100%;">
 	<head>
-		<title>The Dojo Unit Test Harness, $Rev: 25266 $</title>
+		<title>The Dojo Unit Test Harness, $Rev: 25651 $</title>
 
 		<script type="text/javascript">
 			// workaround for bug in Safari 3.	See #7189
@@ -164,6 +164,7 @@
 				if(sandbox){
 					// configure the loader assuming the dojo loader; of course the injected boot(s) can override this config
 					config= {
+						paths: paths,
 						// this config uses the dojo loader's scoping features to sandbox the version of dojo used by doh
 						packages:[{
 							name:'doh',
@@ -221,6 +222,7 @@
 					};
 				}else{
 					config= {
+						paths: paths,
 						deps:["dojo", "doh", "dojo/window"],
 						callback:function(dojo, doh){
 							dojo.ready(function(){
